@@ -1,0 +1,51 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="${HOME}/bin:/usr/local/sbin:/usr/local/go/bin/:$PATH"
+
+export GOPATH=/nas/cluster/gopath
+export GOROOT=/usr/local/go
+export GOPROXY=https://proxy.golang.org
+export BIN=${BIN}:~/bin
+
+
+# Path to your oh-my-zsh installation.
+export ZSH=~/.oh-my-zsh
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="robbyrussell"
+
+plugins=(
+  git
+  fast-syntax-highlighting
+  history
+  zsh-autosuggestions
+  web-search
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# Initialize the completion system
+autoload -Uz compinit
+
+# Cache completion if nothing changed - faster startup time
+typeset -i updated_at=$(date +'%j' -r ~/.zcompdump 2>/dev/null || stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)
+if [ $(date +'%j') != $updated_at ]; then
+  compinit -i
+else
+  compinit -C -i
+fi
+
+#eval "$(starship init zsh)"
+
+source ~/.aliases
+
+export PIPENV_VENV_IN_PROJECT=1
+
+. $HOME/.asdf/asdf.sh
+
+
+
+autoload -U +X bashcompinit && bashcompinit
