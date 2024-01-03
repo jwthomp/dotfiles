@@ -1,6 +1,6 @@
 # load zgenom
 source "${HOME}/.zgenom/zgenom.zsh"
-source "${HOME}/.secrets"
+touch -a "${HOME}/.secrets" && source "${HOME}/.secrets"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
 
 # Check for plugin and zgenom updates every 7 days
@@ -38,11 +38,8 @@ fi
 
 . "$HOME/.asdf/asdf.sh"
 
-source ~/.aliases
+touch ~/.aliases && source ~/.aliases
 
-# Created by `pipx` on 2022-12-13 16:39:19
-export PATH="$PATH:/Users/jwthomp/Library/Python/3.9/bin"
-
-# Created by `pipx` on 2022-12-13 19:46:12
-export PATH="$PATH:/Users/jwthomp/.local/bin"
+# Give access to chezmoi and other homedir installed bins
+export PATH="${PATH}:${HOME}/bin"
 
