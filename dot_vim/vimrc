@@ -1,0 +1,24 @@
+" This is enabled by default in Neovim by the way
+filetype on             " enable filetype detection
+filetype plugin on      " load file-specific plugins
+filetype indent on      " load file-specific indentation
+
+set expandtab
+set tabstop=2
+
+"call plug#begin('~/.vim/plugged')
+"Plug 'https://gitlab.com/code-stats/code-stats-vim.git'
+"Plug 'vim-airline/vim-airline'
+"call plug#end()
+
+" REQUIRED: set your API key
+"let g:codestats_api_key = '$CODESTATS_API_KEY'
+
+" Optional: configure vim-airline to display status
+"let g:airline_section_x = airline#section#create_right(['tagbar', 'filetype', '%{CodeStatsXp()}'])
+
+"set mouse-=a
+
+"au BufRead,BufNewFile *.ex,*.exs set filetype=elixir
+
+"set re=0
