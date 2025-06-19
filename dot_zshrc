@@ -36,10 +36,10 @@ fi
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 
-. "$HOME/.asdf/asdf.sh"
 
 touch ~/.aliases && source ~/.aliases
 
 # Give access to chezmoi and other homedir installed bins
 export PATH="${PATH}:${HOME}/bin"
 
+eval "$(~/.local/bin/mise activate zsh)"
