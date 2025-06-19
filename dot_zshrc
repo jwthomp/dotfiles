@@ -37,9 +37,9 @@ fi
 
 
 
-touch ~/.aliases && source ~/.aliases
-
 # Give access to chezmoi and other homedir installed bins
 export PATH="${PATH}:${HOME}/bin"
 
 eval "$(~/.local/bin/mise activate zsh)"
+
+touch ~/.aliases && source ~/.aliases
