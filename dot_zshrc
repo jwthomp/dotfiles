@@ -36,9 +36,16 @@ fi
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 
+# Homebrew Support for libxslt (used by Erlang)
+export PATH="/opt/homebrew/opt/libxslt/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/libxslt/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/libxslt/include"
 
 # Give access to chezmoi and other homedir installed bins
 export PATH="${PATH}:${HOME}/bin"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export LDFLAGS+=" -L/opt/homebrew/opt/libpq/lib"
+export CPPFLAGS+=" -I/opt/homebrew/opt/libpq/include"
 
 eval "$(~/.local/bin/mise activate zsh)"
 
