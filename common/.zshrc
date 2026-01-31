@@ -1,6 +1,7 @@
 # load zgenom
 source "${HOME}/.zgenom/zgenom.zsh"
 touch -a "${HOME}/.secrets" && source "${HOME}/.secrets"
+touch -a ~/.aliases && source ~/.aliases
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
 
 # Check for plugin and zgenom updates every 7 days
@@ -35,18 +36,6 @@ fi
 ## To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-
-# Homebrew Support for libxslt (used by Erlang)
-export PATH="/opt/homebrew/opt/libxslt/bin:$PATH"
-export LDFLAGS="-L/opt/homebrew/opt/libxslt/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/libxslt/include"
-
-# Give access to chezmoi and other homedir installed bins
-export PATH="${PATH}:${HOME}/bin"
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-export LDFLAGS+=" -L/opt/homebrew/opt/libpq/lib"
-export CPPFLAGS+=" -I/opt/homebrew/opt/libpq/include"
-
-eval "$(~/.local/bin/mise activate zsh)"
-
-touch ~/.aliases && source ~/.aliases
+touch -a .zshrc.os-specific & source .zshrc-os-specific
+touch -a .zshrc.machine-specific & source .zshrc-machine-specific
+touch -a .zshrc.local-overrides & source .zshrc.host-specific
