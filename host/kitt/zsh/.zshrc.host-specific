@@ -1,5 +1,4 @@
 # zsh settings for kitt dev machine
-
 # Homebrew Support for libxslt (used by Erlang)
 export PATH="/opt/homebrew/opt/libxslt/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/libxslt/lib"

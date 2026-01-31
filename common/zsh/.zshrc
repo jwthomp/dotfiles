@@ -37,12 +37,11 @@ fi
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 files_to_source=(
-  "~/.zshrc.os-specific"
-  "~/.zshrc.machine-specific"
-  "~/.zshrc.host-specific"
+  "${HOME}/.zshrc.os-specific"
+  "${HOME}/.zshrc.host-specific"
 )
 
-for file_path in "${files_to_check[@]}"; do
+for file_path in ${files_to_source[@]}; do
   if [[ -f "$file_path" ]]; then
     source "$file_path"
   fi
