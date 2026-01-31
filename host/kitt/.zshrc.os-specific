@@ -1,0 +1,35 @@
+# zsh settings for kitt dev machine
+
+# Homebrew Support for libxslt (used by Erlang)
+export PATH="/opt/homebrew/opt/libxslt/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/libxslt/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/libxslt/include"
+
+# Give access to chezmoi and other homedir installed bins
+export PATH="${PATH}:${HOME}/bin"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export PATH="/Users/jwthomp/.venv-vllm-metal/bin:$PATH"
+LDFLAGS+=" -L/opt/homebrew/opt/libpq/lib"
+CPPFLAGS+=" -I/opt/homebrew/opt/libpq/include"
+
+eval "$(~/.local/bin/mise activate zsh)"
+
+
+# Added by swiftly
+. "/Users/jwthomp/.swiftly/env.sh"
+
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/jwthomp/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
+
+fpath+=~/.zfunc; autoload -Uz compinit; compinit
+
+zstyle ':completion:*' menu select
+
+export PATH="/Users/jwthomp/.venv-vllm-metal/bin:$PATH"
+
+# opencode
+export PATH=/Users/jwthomp/.opencode/bin:$PATH
+export PATH="/Users/jwthomp/.bun/bin:$PATH"
