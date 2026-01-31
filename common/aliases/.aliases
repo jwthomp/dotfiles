@@ -1,0 +1,15 @@
+alias drpg-sync="drpg --token ${DRPG_TOKEN} -p ~/DriveThruRPG --compatibility-mode"
+
+export DCK_N_FORMAT="table {{.Names}}\t{{.Image}}\t{{.Status}}"
+export DCK_N2_FORMAT="table {{.Names}}\t{{.Ports}}\t{{.Status}}"
+
+alias dpsn='docker ps --format="$DCK_N_FORMAT" -a'
+alias dpsn2='docker ps --format="$DCK_N2_FORMAT" -a'
+
+alias ghqp="ghq get -u -p -l"
+
+fuction ollama_model_path() { 
+  ollama show --modelfile "${1}" | grep "^FROM" | sed "s/^FROM[ ]*\(.*\)/\1/"
+}
+
+alias omp=ollama_model_path
