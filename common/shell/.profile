@@ -1,0 +1,2 @@
+
+. "$HOME/.langflow/uv/env"
