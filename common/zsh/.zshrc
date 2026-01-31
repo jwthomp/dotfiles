@@ -36,6 +36,14 @@ fi
 ## To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-touch -a .zshrc.os-specific & source .zshrc-os-specific
-touch -a .zshrc.machine-specific & source .zshrc-machine-specific
-touch -a .zshrc.local-overrides & source .zshrc.host-specific
+files_to_source=(
+  "~/.zshrc.os-specific"
+  "~/.zshrc.machine-specific"
+  "~/.zshrc.host-specific"
+)
+
+for file_path in "${files_to_check[@]}"; do
+  if [[ -f "$file_path" ]]; then
+    source "$file_path"
+  fi
+done
