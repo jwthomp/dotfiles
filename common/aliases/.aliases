@@ -13,3 +13,6 @@ fuction ollama_model_path() {
 }
 
 alias omp=ollama_model_path
+
+alias drop_caches='sudo sh -c "echo 3 > /proc/sys/vm/drop_caches"'
+alias hf='uvx hf'
