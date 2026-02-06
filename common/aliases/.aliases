@@ -8,7 +8,7 @@ alias dpsn2='docker ps --format="$DCK_N2_FORMAT" -a'
 
 alias ghqp="ghq get -u -p -l"
 
-fuction ollama_model_path() { 
+function ollama_model_path() { 
   ollama show --modelfile "${1}" | grep "^FROM" | sed "s/^FROM[ ]*\(.*\)/\1/"
 }
 
