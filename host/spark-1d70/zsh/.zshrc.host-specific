@@ -1,0 +1,10 @@
+
+. "${HOME}/.local/bin/env"
+
+export PATH=${PATH}:${HOME}/bin:${HOME}/bin/llama.cpp
+
+if [[ -f "${HOME}/.secrets" ]]; then
+  source "${HOME}/.secrets"
+fi
+
+source "${HOME}/.aliases"
