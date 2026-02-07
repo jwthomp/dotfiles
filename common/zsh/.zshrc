@@ -1,7 +1,7 @@
 # load zgenom
 source "${HOME}/.zgenom/zgenom.zsh"
 touch -a "${HOME}/.secrets" && source "${HOME}/.secrets"
-touch -a "${HOME{/.aliases" && source "${HOME}/.aliases"
+touch -a "${HOME}/.aliases" && source "${HOME}/.aliases"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
 
 # Check for plugin and zgenom updates every 7 days
