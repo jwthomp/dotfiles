@@ -15,18 +15,21 @@ package_list=(
   "zsh"
 )
 
+package_locations=(
+  "common"
+  "os/${OS}"
+  "host/${HOSTNAME}"
+)
+
 for package_name in ${package_list[@]}; do
   printf "Installing %-15s files for OS: %-10s and HOST: %s\n" ${package_name} ${OS} ${HOSTNAME}
 
-  if [[ -d "common/${package_name}" ]]; then
-    stow -d common  -t ~/ -R ${package_name}
-  fi
-
-  if [[ -d "os/${OS}/${package_name}" ]]; then
-    stow -d os/${OS} -t ~/ -R ${package_name}
-  fi
-
-  if [[ -d "host/${HOSTNAME}/${package_name}" ]]; then
-    stow -d host/${HOSTNAME} -t ~/ -R ${package_name}
-  fi
+  for package_location in ${package_locations[@]}; do
+    if [[ -d "${package_location}/${package_name}" ]]; then
+      stow -d "${package_location}"  -t ~/ -R "${package_name}"
+      if [[ -f "${package_location}/${package_name}/setup.sh" ]]; then
+        "${package_location}/${package_name}/setup.sh"
+      fi
+    fi
+  done
 done
